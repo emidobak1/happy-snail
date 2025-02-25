@@ -404,7 +404,7 @@ const HappySnailWebsite: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="md:max-w-xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-6">
-              Artisanal Florals for Toronto's<br /> 
+              Artisanal Florals for Toronto&apos;s<br /> 
               <span className="text-teal-800 font-medium">Modern Romantics</span>
             </h1>
             <p className="text-gray-600 mb-8 text-lg">
@@ -508,7 +508,7 @@ const HappySnailWebsite: React.FC = () => {
                 We source our blooms from local Ontario farms whenever possible, reducing our carbon footprint while supporting the local economy.
               </p>
               <p className="text-gray-600 mb-8">
-                Each arrangement is thoughtfully designed and handcrafted in our Toronto studio, bringing a touch of nature's beauty into homes and businesses across the city.
+                Each arrangement is thoughtfully designed and handcrafted in our Toronto studio, bringing a touch of nature&apos;s beauty into homes and businesses across the city.
               </p>
               <a href="#custom" className="px-8 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors inline-block">
                 Work with Us
@@ -575,7 +575,7 @@ const HappySnailWebsite: React.FC = () => {
                 From intimate dinner parties to grand weddings, our custom floral services bring your vision to life with our signature Happy Snail touch.
               </p>
               <p className="text-gray-600 mb-6">
-                We offer personal consultations to discuss your event's needs, style preferences, and budget to create the perfect floral experience.
+                We offer personal consultations to discuss your event&apos;s needs, style preferences, and budget to create the perfect floral experience.
               </p>
               <p className="text-gray-600 mb-8">
                 Our team handles everything from initial concept to final installation, ensuring a seamless experience from start to finish.
@@ -662,7 +662,7 @@ const HappySnailWebsite: React.FC = () => {
             <div className="md:w-1/2 md:pr-16 mb-10 md:mb-0">
               <h2 className="text-3xl md:text-4xl font-light mb-6">Get in Touch</h2>
               <p className="text-gray-600 mb-8">
-                Have questions or special requests? We'd love to hear from you.
+                Have questions or special requests? We&apos;d love to hear from you.
               </p>
               
               <div className="mb-6">
