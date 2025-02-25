@@ -517,10 +517,10 @@ const HappySnailWebsite: React.FC = () => {
           </div>
         </div>
       </section>
-      
-      {/* Testimonials */}
+
+      {/* Testimonials - Updated for mobile horizontal layout */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-pink-50 to-white relative overflow-hidden">
-       {/* Decorative floral elements */}
+        {/* Decorative floral elements */}
         <div className="absolute top-0 left-0 w-40 h-40 opacity-20 md:opacity-30">
           <div className="w-full h-full bg-contain bg-no-repeat bg-left-top" style={{ backgroundImage: "url('/floral-corner.png')" }}></div>
         </div>
@@ -530,7 +530,7 @@ const HappySnailWebsite: React.FC = () => {
         
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           {/* Decorative heading with floral accents */}
-          <div className="text-center mb-12 relative">
+          <div className="text-center mb-8 relative">
             <h2 className="text-3xl md:text-4xl font-light text-center relative inline-block">
               <span className="relative z-10 px-4">Client Love</span>
               <span className="absolute left-0 right-0 bottom-0 h-3 bg-pink-100 opacity-70 -z-10"></span>
@@ -540,28 +540,34 @@ const HappySnailWebsite: React.FC = () => {
             </div>
           </div>
           
-          {/* Testimonial cards with softer styling */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Testimonial cards - grid on desktop, horizontal scroll on mobile */}
+          <div className="md:grid md:grid-cols-3 md:gap-8 flex md:flex-wrap overflow-x-auto md:overflow-visible pb-4 md:pb-0 space-x-4 md:space-x-0 snap-x">
             {testimonials.map(testimonial => (
-              <div key={testimonial.id} className="bg-white p-8 rounded-xl shadow-sm border border-pink-100 hover:shadow-md transition-shadow duration-300 relative overflow-hidden">
+              <div 
+                key={testimonial.id} 
+                className="flex-shrink-0 w-80 md:w-full snap-center bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-pink-100 hover:shadow-md transition-shadow duration-300 relative overflow-hidden"
+              >
                 {/* Quote icon */}
-                <div className="absolute top-4 right-4 text-pink-100 opacity-50">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                <div className="absolute top-2 right-2 text-pink-100 opacity-50">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
                 </div>
                 
-                {/* Testimonial text with fancy quote styling */}
+                {/* Testimonial text with more compact styling for mobile */}
                 <div className="relative">
-                  <p className="text-gray-600 mb-6 italic">{testimonial.text}</p>
-                  <div className="pt-4 border-t border-pink-50">
-                    <p className="font-medium text-gray-800">{testimonial.author}</p>
-                    <p className="text-pink-400 text-sm">{testimonial.location}</p>
+                  <p className="text-gray-600 mb-4 italic text-sm sm:text-base">{testimonial.text}</p>
+                  <div className="pt-2 border-t border-pink-50">
+                    <p className="font-medium text-gray-800 text-sm sm:text-base">{testimonial.author}</p>
+                    <p className="text-pink-400 text-xs sm:text-sm">{testimonial.location}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+          
+          {/* Optional scroll indicator - only on mobile */}
+          <div className="mt-4 text-center text-xs text-gray-400 md:hidden">Swipe to see more →</div>
         </div>
       </section>
       
@@ -591,67 +597,62 @@ const HappySnailWebsite: React.FC = () => {
         </div>
       </section>
       
-      {/* Delivery */}
-      <section id="delivery" className="py-16 md:py-24 bg-gradient-to-b from-lime-700/10 to-white relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-40 h-40 opacity-20">
-          <div className="w-full h-full bg-contain bg-no-repeat bg-right-top" style={{ backgroundImage: "url('/leaf-corner.png')" }}></div>
-        </div>
-        <div className="absolute bottom-0 left-0 w-40 h-40 opacity-20 transform rotate-180">
-          <div className="w-full h-full bg-contain bg-no-repeat bg-left-bottom" style={{ backgroundImage: "url('/leaf-corner.png')" }}></div>
-        </div>
-        
+      {/* Delivery - Updated for mobile horizontal layout */}
+      <section id="delivery" className="py-16 md:py-24 bg-gradient-to-b from-lime-700/10 to-white relative overflow-hidden">        
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           {/* Heading with decorative elements */}
-          <div className="text-center mb-12 relative">
+          <div className="text-center mb-8 relative">
             <h2 className="text-3xl md:text-4xl font-light text-center relative inline-block">
               <span className="relative z-10 px-4">Delivery Information</span>
-              <span className="absolute left-0 right-0 bottom-0 h-3 bg-lime-700/10 opacity-70 -z-10"></span>
+              <span className="absolute left-0 right-0 bottom-0 h-2 bg-lime-700/10 opacity-70 -z-10"></span>
             </h2>
             <div className="flex justify-center mt-3">
               <div className="w-24 h-1 bg-gradient-to-r from-transparent via-lime-700/20 to-transparent"></div>
             </div>
           </div>
           
-          {/* Delivery cards with sage theme */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-lime-700/10 hover:shadow-md transition-shadow duration-300 text-center">
-              <div className="w-16 h-16 bg-lime-700/10 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
-                <svg className="w-8 h-8 text-lime-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          {/* Delivery cards - grid on desktop, horizontal scroll on mobile */}
+          <div className="md:grid md:grid-cols-3 md:gap-8 flex md:flex-wrap overflow-x-auto md:overflow-visible pb-4 md:pb-0 space-x-4 md:space-x-0 snap-x max-w-6xl mx-auto">
+            <div className="flex-shrink-0 w-72 md:w-full snap-center bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-lime-700/10 hover:shadow-md transition-shadow duration-300 text-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-lime-700/10 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-lime-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-medium mb-4 text-green-800">Toronto & GTA</h3>
-              <p className="text-gray-600">
+              <h3 className="text-lg sm:text-xl font-medium mb-2 text-green-800">Toronto & GTA</h3>
+              <p className="text-gray-600 mb-4 italic text-sm sm:text-base">
                 We deliver throughout Toronto and the Greater Toronto Area, with delivery fees starting at $12.
               </p>
             </div>
             
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-lime-700/10 hover:shadow-md transition-shadow duration-300 text-center">
-              <div className="w-16 h-16 bg-lime-700/10 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
-                <svg className="w-8 h-8 text-lime-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <div className="flex-shrink-0 w-72 md:w-full snap-center bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-lime-700/10 hover:shadow-md transition-shadow duration-300 text-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-lime-700/10 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-lime-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-medium mb-4 text-green-800">Delivery Times</h3>
-              <p className="text-gray-600">
+              <h3 className="text-lg sm:text-xl font-medium mb-2 text-green-800">Delivery Times</h3>
+              <p className="text-gray-600 mb-4 italic text-sm sm:text-base">
                 Order by 12pm for same-day delivery Tuesday through Saturday. All deliveries arrive between 10am and 6pm.
               </p>
             </div>
             
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-lime-700/10 hover:shadow-md transition-shadow duration-300 text-center">
-              <div className="w-16 h-16 bg-lime-700/10 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
-                <svg className="w-8 h-8 text-lime-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <div className="flex-shrink-0 w-72 md:w-full snap-center bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-lime-700/10 hover:shadow-md transition-shadow duration-300 text-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-lime-700/10 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-lime-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-medium mb-4 text-green-800">Pickup Options</h3>
-              <p className="text-gray-600">
+              <h3 className="text-lg sm:text-xl font-medium mb-2 text-green-800">Pickup Options</h3>
+              <p className="text-gray-600 mb-4 italic text-sm sm:text-base">
                 Free pickup available from our Riverdale studio during business hours, Tuesday through Saturday, 10am to 6pm.
               </p>
             </div>
           </div>
+          
+          {/* Optional scroll indicator */}
+          <div className="mt-4 text-center text-xs text-gray-400 md:hidden">Swipe to see more →</div>
         </div>
       </section>
       
