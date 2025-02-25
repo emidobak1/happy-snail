@@ -36,42 +36,42 @@ const InstagramFeed: React.FC<InstagramFeedProps> = ({ username }) => {
             id: '1',
             imageUrl: '/img1.png',
             caption: 'Our new spring collection has arrived! 🌸 #TorontoFlorist #SpringFlowers',
-            permalink: 'https://instagram.com/p/mock1',
+            permalink: 'https://www.instagram.com/p/DFialFEOVIw/',
             timestamp: '2025-02-20T12:00:00Z'
           },
           {
             id: '2',
             imageUrl: '/img2.png',
             caption: 'Beautiful wedding arrangement for Sarah & Michael\'s special day 💍 #WeddingFlowers',
-            permalink: 'https://instagram.com/p/mock2',
+            permalink: 'https://www.instagram.com/p/DExLpV2un7r/',
             timestamp: '2025-02-18T15:30:00Z'
           },
           {
             id: '3',
             imageUrl: '/img3.png',
             caption: 'Behind the scenes at our Ossington studio today! #FloristLife',
-            permalink: 'https://instagram.com/p/mock3',
+            permalink: 'https://www.instagram.com/p/DEz76GHuM-y/',
             timestamp: '2025-02-15T09:45:00Z'
           },
           {
             id: '4',
             imageUrl: '/img4.png',
             caption: 'Our dried flower collection is perfect for long-lasting beauty. #SustainableFlowers',
-            permalink: 'https://instagram.com/p/mock4',
+            permalink: 'https://www.instagram.com/p/DBCI4aRO0MY/',
             timestamp: '2025-02-12T14:20:00Z'
           },
           {
             id: '5',
             imageUrl: '/img5.png',
             caption: 'Last chance to order our Valentine\'s Day special arrangements! #LoveIsInTheAir',
-            permalink: 'https://instagram.com/p/mock5',
+            permalink: 'https://www.instagram.com/p/DBzN3hOP-wP/',
             timestamp: '2025-02-10T11:15:00Z'
           },
           {
             id: '6',
             imageUrl: '/img6.png',
             caption: 'Fresh flowers just arrived from our local farms! #FreshFlowers #LocallySourced',
-            permalink: 'https://instagram.com/p/mock6',
+            permalink: 'https://www.instagram.com/p/DF9Ut_suXeu/',
             timestamp: '2025-02-08T16:40:00Z'
           }
         ];
@@ -669,8 +669,9 @@ const HappySnailWebsite: React.FC = () => {
               <div className="mb-6">
                 <h3 className="text-lg font-medium mb-3">Studio Location</h3>
                 <p className="text-gray-600">
-                  123 Ossington Avenue<br />
-                  Toronto, ON M6J 2Z4
+                  34 Wolfrey Avenue<br />
+                  Toronto, ON M4K 1K8
+
                 </p>
               </div>
               
@@ -686,7 +687,7 @@ const HappySnailWebsite: React.FC = () => {
                 <h3 className="text-lg font-medium mb-3">Contact</h3>
                 <p className="text-gray-600">
                   Email: hello@happysnail.ca<br />
-                  Phone: (416) 555-1234
+                  Phone: (xxx) xxx-xxxx
                 </p>
               </div>
               
@@ -710,7 +711,7 @@ const HappySnailWebsite: React.FC = () => {
             </div>
             
             <div className="md:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-light mb-6">@happy_snail.ca</h2>
+              <h2 className="text-2xl md:text-xl font-light mb-6">@happy_snail.ca</h2>
               
               <InstagramFeed username="happy_snail.ca" />
               
