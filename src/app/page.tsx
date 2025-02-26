@@ -558,15 +558,7 @@ const HappySnailWebsite: React.FC = () => {
       </section>
 
       {/* Testimonials - Updated for mobile horizontal layout */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-pink-50 to-white relative overflow-hidden">
-        {/* Decorative floral elements */}
-        <div className="absolute top-0 left-0 w-40 h-40 opacity-20 md:opacity-30">
-          <div className="w-full h-full bg-contain bg-no-repeat bg-left-top" style={{ backgroundImage: "url('/floral-corner.png')" }}></div>
-        </div>
-        <div className="absolute bottom-0 right-0 w-40 h-40 opacity-20 md:opacity-30 transform rotate-180">
-          <div className="w-full h-full bg-contain bg-no-repeat bg-right-bottom" style={{ backgroundImage: "url('/floral-corner.png')" }}></div>
-        </div>
-        
+      <section className="py-16 md:py-24 bg-gradient-to-b from-pink-50 to-white relative overflow-hidden">        
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           {/* Decorative heading with floral accents */}
           <div className="text-center mb-8 relative">
