@@ -1,4 +1,5 @@
 "use client"
+import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 
 // Instagram Feed Component
@@ -199,6 +200,21 @@ const HappySnailWebsite: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedCart = localStorage.getItem('happySnailCart');
+      if (savedCart) {
+        try {
+          const parsedCart = JSON.parse(savedCart);
+          setCart(parsedCart);
+        } catch (error) {
+          console.error('Failed to parse cart data from localStorage:', error);
+          setCart([]);
+        }
+      }
+    }
+  }, []);
+
   const toggleMenu = (): void => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -216,11 +232,34 @@ const HappySnailWebsite: React.FC = () => {
   const addToCart = (): void => {
     if (!selectedProduct) return;
     
-    const newItem: CartItem = {
-      ...selectedProduct,
-      quantity,
-    };
-    setCart([...cart, newItem]);
+    // Check if the product is already in the cart
+    const existingItemIndex = cart.findIndex(item => item.id === selectedProduct.id);
+    
+    let updatedCart: CartItem[];
+    
+    if (existingItemIndex !== -1) {
+      // If item exists, update quantity
+      updatedCart = cart.map((item, index) => 
+        index === existingItemIndex 
+          ? { ...item, quantity: item.quantity + quantity } 
+          : item
+      );
+    } else {
+      // If item doesn't exist, add new item
+      const newItem: CartItem = {
+        ...selectedProduct,
+        quantity,
+      };
+      updatedCart = [...cart, newItem];
+    }
+      
+    // Update state
+    setCart(updatedCart);
+    
+    // Save to localStorage
+    localStorage.setItem('happySnailCart', JSON.stringify(updatedCart));
+    
+    // Close the modal
     closeModal();
   };
 
@@ -363,12 +402,12 @@ const HappySnailWebsite: React.FC = () => {
             <a href="#custom" className="text-gray-600 hover:text-gray-900 transition-colors">Custom</a>
             <a href="#delivery" className="text-gray-600 hover:text-gray-900 transition-colors">Delivery</a>
             <div className="relative">
-              <a href="#cart" className="text-gray-600 hover:text-gray-900 transition-colors">
+              <Link href="/cart" className="text-gray-600 hover:text-gray-900 transition-colors">
                 Cart
                 <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
                   {cart.length}
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
           
@@ -390,9 +429,9 @@ const HappySnailWebsite: React.FC = () => {
               <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors" onClick={() => setIsMenuOpen(false)}>About</a>
               <a href="#custom" className="text-gray-600 hover:text-gray-900 transition-colors" onClick={() => setIsMenuOpen(false)}>Custom</a>
               <a href="#delivery" className="text-gray-600 hover:text-gray-900 transition-colors" onClick={() => setIsMenuOpen(false)}>Delivery</a>
-              <a href="#cart" className="text-gray-600 hover:text-gray-900 transition-colors" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/cart" className="text-gray-600 hover:text-gray-900 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Cart ({cart.length})
-              </a>
+              </Link>
             </div>
           </div>
         )}
@@ -452,7 +491,7 @@ const HappySnailWebsite: React.FC = () => {
                 key={category.id}
                 className={`px-6 py-2 rounded-full text-sm transition-colors ${
                   activeCategory === category.id
-                    ? 'bg-gray-900 text-white'
+                    ? 'bg-teal-900 text-white'
                     : 'bg-white text-gray-600 hover:bg-gray-200'
                 }`}
                 onClick={() => filterProducts(category.id)}
@@ -480,7 +519,7 @@ const HappySnailWebsite: React.FC = () => {
                   </div>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2">{product.description}</p>
                   <button 
-                    className="w-full py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors"
+                    className="w-full py-3 bg-teal-900 text-white rounded-full hover:bg-gray-800 transition-colors"
                     onClick={() => openModal(product)}
                   >
                     Add to Cart
@@ -510,7 +549,7 @@ const HappySnailWebsite: React.FC = () => {
               <p className="text-gray-600 mb-8">
                 Each arrangement is thoughtfully designed and handcrafted in our Toronto studio, bringing a touch of nature&apos;s beauty into homes and businesses across the city.
               </p>
-              <a href="#custom" className="px-8 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors inline-block">
+              <a href="#custom" className="px-8 py-3 bg-teal-900 text-white rounded-full hover:bg-gray-800 transition-colors inline-block">
                 Work with Us
               </a>
             </div>
@@ -586,7 +625,7 @@ const HappySnailWebsite: React.FC = () => {
               <p className="text-gray-600 mb-8">
                 Our team handles everything from initial concept to final installation, ensuring a seamless experience from start to finish.
               </p>
-              <a href="#contact" className="px-8 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors inline-block">
+              <a href="#contact" className="px-8 py-3 bg-teal-900 text-white rounded-full hover:bg-gray-800 transition-colors inline-block">
                 Book a Consultation
               </a>
             </div>
